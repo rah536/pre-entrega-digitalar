@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "nombre": "Teclado Mecánico Logitech G Pro X Superlight",
+    "precio": 80000.00,
+    "stock": 4,
+    "foto": "/images/TecladoMecanico.jpg"
+  },
+  {
+    "id": "2",
+    "nombre": "Mouse Inalámbrico Viper V3 Pro",
+    "precio": 45000.00,
+    "stock": 11,
+    "foto": "/images/Mouse.jpg"
+  },
+  {
+    "id": "3",
+    "nombre": "Monitor Curvo 32' Philips GHJEUJ2020235 Jx",
+    "precio": 29999.00,
+    "stock": 1,
+    "foto": "/images/MonitorCurvo.jpg"
+  },
+  {
+    "id": "4",
+    "nombre": "Tarjeta Gráfica RTX 4070 Super",
+    "precio": 66000.00,
+    "stock": 8,
+    "foto": "/images/tarjetaGrafica.webp"
+  },
+  {
+    "id": "5",
+    "nombre": "Cámara Nikon Z50 X 16-50mm",
+    "precio": 116000.00,
+    "stock": 0,
+    "foto": "/images/CamaraNikon.webp"
+  },
+   {
+    "id": "6",
+    "nombre": "Notebook HP Elitebook 845 G8",
+    "precio": 726000.00,
+    "stock": 88,
+    "foto": "/images/windows11.jpg"
+  },
+  {
+   "id": "7",
+    "nombre": "Monitor Asus ROG Swift PG32UQX",
+    "precio": 261000.00,
+    "stock": 22,
+    "foto": "/images/MonitorAsus.jpg"
+  }
+]

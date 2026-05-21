@@ -1,0 +1,23 @@
+/* index.css */
+
+/* 1. Le quitamos los márgenes por defecto a todo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Configuramos la tipografía y el fondo de toda la app */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #ffffff; /* Fondo blanco limpio para toda la web */
+  color: #333333; /* Texto oscuro pero no 100% negro para cansar menos la vista */
+  min-height: 100vh;
+}
+
+/* 3. Aseguramos que el contenedor principal ocupe toda la pantalla */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
