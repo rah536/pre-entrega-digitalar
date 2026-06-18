@@ -7,9 +7,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 
-export function Item({ id, nombre, foto, precio, stock }) {
+export function Item({ id, nombre, foto, precio, stock, categoria }) {
     const [cantidad, setCantidad] = useState(0);
-    const producto = { id, nombre, foto, precio, stock };
+    const producto = { id, nombre, foto, precio, stock, categoria };
     
     //const { addToCart } = useCart(); // Traemos la función del contexto
     const { addToCart, getQuantityById } = useCart();
@@ -50,6 +50,17 @@ return (
     <div style={{ border: '1px solid #382f2f', padding: '20px', borderRadius: '12px', width: '280px', display: 'flex', justifyContent: 'space-between', flexDirection: 'column', height: '100%' }}>
         <Link to={`/producto/${id}`} style={{ color: 'black' }}>
             <img src={foto} alt={nombre} style={{ width: '100%', height: '170px', marginBottom: '15px', display: 'flex',justifyContent: 'center', alignItems: 'center',overflow: 'hidden',backgroundColor: '#f9f9f9',borderRadius: '8px', maxWidth: '100%',maxHeight: '100%',objectFit: 'contain'}} />
+            <p style={{ 
+                    margin: '0 0 5px 0', 
+                    textAlign: 'center', 
+                    fontSize: '0.65rem', 
+                    color: '#888', 
+                    textTransform: 'uppercase', 
+                    letterSpacing: '1px',
+                    fontWeight: 'bold'
+                }}>
+                    {categoria}
+                </p>
             <h3>{nombre}</h3>
         </Link>
 

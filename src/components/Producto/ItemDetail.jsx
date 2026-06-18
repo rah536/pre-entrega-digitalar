@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+import { getFirestore, getDoc, doc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 const ItemDetail = () => {
     const { id } = useParams();
@@ -13,15 +15,25 @@ const ItemDetail = () => {
 
     // Con este 'id', podríamos hacer una llamada a una API para buscar los datos del producto
     useEffect(() => {
-        fetch('/data/productos.json')
-            .then(response => response.json())
-            .then(data => {
-                const productoEncontrado = data.find(p => String(p.id) === String(id));
-                setProducto(productoEncontrado);
+
+        const productoDB = doc(db, "productos", id)
+
+            getDoc(productoDB)
+            .then((resp) => {
+               if (resp.exists()) {
+                // Si existe, armamos el objeto producto y lo guardamos en el estado
+                setProducto({ ...resp.data(), id: resp.id });
+            } else {
+                // Si no existe (el usuario metió un ID falso en la URL), seteamos null
+                setProducto(null);
+            }
             })
-            .catch(error => console.error("Error al cargar el producto:", error))
+            .catch((error) => {
+                setError(error.message);
+                console.error("Error trayendo productos:", error);
+            })
             .finally(() => {
-                setCargando(false); //estado "cargando" es para difernciar cuando demora y cuando el id no existe
+                setCargando(false);
             });
     }, [id]);
 

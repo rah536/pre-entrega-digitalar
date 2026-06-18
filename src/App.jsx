@@ -5,6 +5,7 @@ import { ItemListContainer } from './components/Producto/ItemListContainer';
 import { Cart } from './components/Cart/Cart';
 import { Contacto } from './components/Contacto/Contacto';
 import ItemDetail from './components/Producto/ItemDetail';
+import { Gestion } from './components/Formulario/FormularioGestion';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // --- PLACEHOLDERS TEMPORALES ---
@@ -22,6 +23,7 @@ function App() {
           <Route path="/producto/:id" element={<ItemDetail />} />
           <Route path="/carrito" element={<Cart />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/gestion" element={<Gestion />} />
         </Route>
       </Routes>
     </>

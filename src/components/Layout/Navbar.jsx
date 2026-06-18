@@ -10,9 +10,9 @@ const Navbar = () => {
       <ul style={{ display: "flex", gap: "20px", listStyle: "none", margin: 0, padding: 0, justifyContent: "center" }}>
         <li><Link to="/">Inicio</Link></li>
         <li><Link to="/Productos">Productos</Link></li>
-        <li><Link to="/Carrito">Carrito 🛒 {totalItems > 0 && <span>{totalItems}</span>}
-</Link></li>
+        <li><Link to="/Carrito">Carrito 🛒 {totalItems > 0 && <span>{totalItems}</span>}</Link></li>
         <li><Link to="/Contacto">Contacto</Link></li>
+        <li><Link to="/Gestion">Gestión</Link></li>
       </ul>
     </nav>
   );

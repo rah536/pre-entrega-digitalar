@@ -8,6 +8,8 @@ los pasa a su hijo, ItemList. No hace más.
 */
 import { useState, useEffect } from 'react';
 import { ItemList } from "./ItemList";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 export function ItemListContainer({ Mensaje }) {
     const [productos, setProductos] = useState([]);
@@ -15,28 +17,42 @@ export function ItemListContainer({ Mensaje }) {
     const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
-        fetch('/data/productos.json')
-            .then((respuesta) => {
-                if (!respuesta.ok) {
-                throw new Error('No se pudo cargar la información de los productos')
-            }
-            return respuesta.json();
-        })
-        .then((datos) => {
-            setProductos(datos);
-        })
-        .catch((error) => {
-            setError(error.message);
-        })
-        .finally(() => {
-            setCargando(false);
-        });
-        }, []);
+            const productosDB = collection(db,"productos")
+
+            getDocs(productosDB)
+            .then((resp) => {
+                // Mapeamos los datos y seteamos el estado en un solo paso
+                const productosFormateados = resp.docs.map((doc) => {
+                    return { ...doc.data(), id: doc.id };
+                });
+                setProductos(productosFormateados);
+            })
+            .catch((error) => {
+                setError(error.message);
+                console.error("Error trayendo productos:", error);
+            })
+            .finally(() => {
+                setCargando(false);
+            });
+    }, []);
+
+    if (cargando) {
         return (
-    <div>
-        <h2>{Mensaje}</h2>
+            <div style={{ textAlign: 'center', padding: '50px' }}>
+                <h2>Cargando catálogo...</h2>
+            </div>
+        );
+    }
+
+    if (error) {
+        return <h2 style={{ textAlign: 'center', color: 'red' }}>Error: {error}</h2>;
+    }
+
+    return (
         <div>
-            <ItemList productos={productos} />
+            <h2>{Mensaje}</h2>
+            <div>
+                <ItemList productos={productos} />
+            </div>
         </div>
-    </div>
 );}
