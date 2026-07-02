@@ -28,7 +28,8 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, esE
                 placeholder="Nombre del producto" 
                 value={datosForm.nombre} 
                 onChange={manejarCambio} 
-                required 
+                required
+                maxLength="90"
                 style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
             />
             
@@ -38,7 +39,9 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, esE
                 placeholder="Precio" 
                 value={datosForm.precio} 
                 onChange={manejarCambio} 
-                required 
+                required
+                min="1"
+                max="10000000"
                 style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
             />
 
@@ -48,7 +51,9 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, esE
                 placeholder="Stock" 
                 value={datosForm.stock} 
                 onChange={manejarCambio} 
-                required 
+                required
+                min="1"
+                max="1000"
                 style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
             />
 
@@ -58,7 +63,18 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, esE
                 placeholder="Categoría" 
                 value={datosForm.categoria} 
                 onChange={manejarCambio} 
-                required 
+                required
+                maxLength="30"
+                style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+            />
+
+            <input 
+                type="url" 
+                name="foto" 
+                placeholder="URL de la imagen (Opcional)" 
+                value={datosForm.foto} 
+                onChange={manejarCambio} 
+                // No lleva 'required' para que permita dejarlo vacío sin que salte el cartelito HTML
                 style={{ padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
             />
 

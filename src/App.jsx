@@ -6,7 +6,10 @@ import { Cart } from './components/Cart/Cart';
 import { Contacto } from './components/Contacto/Contacto';
 import ItemDetail from './components/Producto/ItemDetail';
 import { Gestion } from './components/Formulario/FormularioGestion';
+import Login from './components/Login/Login';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // --- PLACEHOLDERS TEMPORALES ---
 // Son componentes miniatura para que las rutas tengan algo que renderizar. 
@@ -23,7 +26,8 @@ function App() {
           <Route path="/producto/:id" element={<ItemDetail />} />
           <Route path="/carrito" element={<Cart />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/gestion" element={<Gestion />} />
+          <Route path="/gestion" element={<ProtectedRoute rolesPermitidos={['admin']}><Gestion /></ProtectedRoute>} />
+          <Route path="/Login" element={<Login />} />
         </Route>
       </Routes>
     </>

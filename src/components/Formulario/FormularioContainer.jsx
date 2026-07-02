@@ -10,7 +10,8 @@ export function FormularioContainer({ productoAEditar, alTerminar }) {
         nombre: '',
         precio: '',
         stock: '',
-        categoria: ''
+        categoria: '',
+        foto: ''
     });
 
     // ESCUCHAMOS CONSTANTEMENTE SI LLEGA UN PRODUCTO PARA EDITAR DESDE EL PADRE
@@ -21,11 +22,12 @@ export function FormularioContainer({ productoAEditar, alTerminar }) {
                 nombre: productoAEditar.nombre || '',
                 precio: productoAEditar.precio || '',
                 stock: productoAEditar.stock || '',
-                categoria: productoAEditar.categoria || ''
+                categoria: productoAEditar.categoria || '',
+                foto: productoAEditar.foto || ''
             });
         } else {
             // MODO CREACIÓN: Si es null, limpiamos por completo el formulario
-            setDatosForm({ nombre: '', precio: '', stock: '', categoria: '' });
+            setDatosForm({ nombre: '', precio: '', stock: '', categoria: '', foto: '' });
         }
     }, [productoAEditar]);
 
@@ -39,8 +41,8 @@ export function FormularioContainer({ productoAEditar, alTerminar }) {
     const manejarEnvio = async (evento) => {
         evento.preventDefault();
 
-        if (!datosForm.nombre || !datosForm.precio || !datosForm.stock || !datosForm.categoria) {
-            alert("Por favor, completá todos los campos.");
+        if (!datosForm.nombre || !datosForm.precio || Number(datosForm.precio) <= 0 ||!datosForm.stock || Number(datosForm.stock) < 0|| !datosForm.categoria) {
+            alert("Por favor, complete todos los campos (el precio no puede ser cero o negativo & el stock no puede ser negativo).");
             return;
         }
 
@@ -49,7 +51,8 @@ export function FormularioContainer({ productoAEditar, alTerminar }) {
                 nombre: datosForm.nombre,
                 precio: Number(datosForm.precio),
                 stock: Number(datosForm.stock),
-                categoria: datosForm.categoria.toLowerCase().trim()
+                categoria: datosForm.categoria.toLowerCase().trim(),
+                foto: datosForm.foto.trim()
             };
 
             if (productoAEditar) {
@@ -69,7 +72,8 @@ export function FormularioContainer({ productoAEditar, alTerminar }) {
                 nombre: '',
                 precio: '',
                 stock: '',
-                categoria: ''
+                categoria: '',
+                foto: ''
             });
             // Avisamos al padre que terminamos la operación (limpiará estados y recargará la lista)
             alTerminar();
