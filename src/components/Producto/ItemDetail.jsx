@@ -71,9 +71,9 @@ const ItemDetail = () => {
     if (cargando) {
         return (
             <div style={{ textAlign: 'center', padding: '50px' }}>
-                <h2>Cargando detalle del producto...</h2>;
-                <img src="/images/espera.png" alt="Espera" style={{ width: '100%', height: '200px', marginBottom: '15px', display: 'flex',justifyContent: 'center', alignItems: 'center',overflow: 'hidden',backgroundColor: '#f9f9f9',borderRadius: '8px', maxWidth: '100%',maxHeight: '100%',objectFit: 'contain'}} />
-                <p>El producto que estás buscando no existe o fue eliminado.</p>
+                <div className="spinner-border text-primary" role="status" style={{ width: '3rem', height: '3rem' }}>
+                    <span className="visually-hidden">Cargando detalle del producto...</span> 
+                </div>
             </div>
 
         )

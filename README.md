@@ -1,16 +1,19 @@
-# React + Vite
+# E-commerce - Carrito de Compras
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Aplicación web de e-commerce desarrollada con React. El proyecto permite a los usuarios explorar un catálogo de productos, ver el detalle de cada uno, y gestionar un carrito de compras (agregar, editar y eliminar productos, eliminar ítems del carrito o vaciarlo completo y calcular el total de la compra).
+La gestion de productos está autorizada unicamente autenticacion y autorizacion -debajo se comparte login admin-
 
-Currently, two official plugins are available:
+## Tecnologías Principales Utilizadas
+React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+React Router DOM (Navegación)
 
-## React Compiler
+Context API (Gestión del estado global del carrito)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Credenciales de Prueba
+Para probar las funcionalidades de logueo dentro de la plataforma, por favor utiliza el siguiente usuario de prueba:
 
-## Expanding the ESLint configuration
+Usuario: admin@gmail.com
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Contraseña: admin1234

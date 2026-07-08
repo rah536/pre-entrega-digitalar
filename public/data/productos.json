@@ -4,14 +4,14 @@
     "nombre": "Teclado Mecánico Logitech G Pro X Superlight",
     "precio": 80000.00,
     "stock": 4,
-    "foto": "/images/TecladoMecanico.jpg"
+    "foto": "https://i.ibb.co/1f2vqBTb/Teclado-Mecanico.jpg"
   },
   {
     "id": "2",
     "nombre": "Mouse Inalámbrico Viper V3 Pro",
     "precio": 45000.00,
     "stock": 11,
-    "foto": "/images/Mouse.jpg"
+    "foto": "https://i.ibb.co/s9dyyvCn/Mouse.jpg"
   },
   {
     "id": "3",

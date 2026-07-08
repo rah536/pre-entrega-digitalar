@@ -38,14 +38,17 @@ export function ItemListContainer({ Mensaje }) {
 
     if (cargando) {
         return (
-            <div style={{ textAlign: 'center', padding: '50px' }}>
-                <h2>Cargando catálogo...</h2>
+            <div className="text-center mt-5"> 
+                <div className="spinner-border text-primary" role="status" style={{ width: '3rem', height: '3rem' }}>
+                    <span className="visually-hidden">Cargando...</span> 
+                </div>
+                <h4 className="mt-3 text-secondary">Cargando catálogo...</h4>
             </div>
         );
     }
 
     if (error) {
-        return <h2 style={{ textAlign: 'center', color: 'red' }}>Error: {error}</h2>;
+        return <h2 className="text-center text-danger mt-5">Error: {error}</h2>;
     }
 
     return (

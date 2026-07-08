@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SearchProvider } from "./context/SearchContext";
 
 // --- PLACEHOLDERS TEMPORALES ---
 // Son componentes miniatura para que las rutas tengan algo que renderizar. 
@@ -19,6 +20,7 @@ const Inicio = () => <h2 style={{textAlign: 'center', padding: '50px'}}>¡Bienve
 function App() {
   return (
     <>
+    <SearchProvider>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Inicio />} />
@@ -30,6 +32,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
         </Route>
       </Routes>
+    </SearchProvider>
     </>
   )
 }
